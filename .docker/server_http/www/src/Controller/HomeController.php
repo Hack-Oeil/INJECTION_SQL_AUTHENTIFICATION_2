@@ -38,7 +38,7 @@ class HomeController extends AbstractController
                 $email = $_POST['email'];
                 $hash = SHA1($_POST['password']);
                 $pdo =  $this->getRepository('User')->getPDO();
-                $statement = $pdo->prepare("SELECT id, email, first_name, last_name, password FROM users WHERE email='$email'");
+                $statement = $pdo->prepare("SELECT id, email, firstname, lastname, password FROM users WHERE email='$email'");
                 $statement->execute();
                 $statement->setFetchMode(\PDO::FETCH_CLASS, 'App\Entity\User');
                 $user = $statement->fetch();
