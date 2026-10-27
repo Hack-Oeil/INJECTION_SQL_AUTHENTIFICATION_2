@@ -1,8 +1,8 @@
-FROM php:8.0-apache
+FROM php:8.2-apache
 
 WORKDIR /var/www/html
 
-RUN apt update && apt install -y zip unzip git
+RUN apt-get update && apt-get install -y zip unzip git
 # Installer les extensions PHP nécessaires
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
